@@ -180,6 +180,7 @@
     });
 
     var nextLink = document.getElementById("next-project");
+    if (!nextLink) return;
     if (projects.length > 1) {
       var np = projects[(idx + 1) % projects.length];
       nextLink.href = "project.html?p=" + encodeURIComponent(np.slug);
