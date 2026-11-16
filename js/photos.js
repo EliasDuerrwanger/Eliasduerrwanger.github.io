@@ -63,4 +63,4 @@ const PROJECTS = [
   Homepage: leave empty = random photo from all projects (except onHome: false).
   Or pick your favourites, e.g. ["alps/_DSF3555.jpg", "big-bend/ELIA4389.jpg"]
 */
-const HOME_IMAGES = [];
+const HOME_IMAGES = ["purdue/_DSF1340.jpg"];
