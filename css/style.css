@@ -148,7 +148,7 @@ a { color: inherit; }
 .notice { grid-column: 1 / -1; max-width: 34rem; margin: 2rem auto; color: var(--muted); text-align: center; line-height: 1.7; }
 
 /* ===== Thin black frame around all photos ===== */
-:root { --frame: 2px solid #000; }   /* change 2px to make it thinner or thicker */
+:root { --frame: 6px solid #000; }   /* change 6px to make it thinner or thicker */
 .home-image,
 .work-item .cover,
 .slide img,
