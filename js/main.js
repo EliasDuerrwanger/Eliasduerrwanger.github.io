@@ -137,7 +137,6 @@
     var pos = 0;
     var slideImg = document.getElementById("slide-img");
     var caption = document.getElementById("slide-caption");
-    var count = document.getElementById("slide-count");
     var prevBtn = document.getElementById("prev");
     var nextBtn = document.getElementById("next");
 
@@ -149,13 +148,14 @@
       pos = (i + images.length) % images.length;
       slideImg.classList.add("fading");
       var pre = new Image();
-      pre.onload = pre.onerror = function () {
+      pre.onload = function () {
         slideImg.src = pre.src;
-        slideImg.alt = project.title + " – image " + (pos + 1);
+        slideImg.alt = project.title;
+        slideImg.hidden = false;
         slideImg.classList.remove("fading");
       };
+      pre.onerror = function () { slideImg.hidden = true; };
       pre.src = img(images[pos]);
-      count.textContent = images.length > 1 ? (pos + 1) + " / " + images.length : "";
       if (images.length > 1) new Image().src = img(images[(pos + 1) % images.length]);
     }
     show(0);
