@@ -24,10 +24,13 @@
     if (!user) return Promise.resolve(null);
     var repo = cfg.githubRepo || user + ".github.io";
     var branch = cfg.branch || "main";
-    var key = "files:" + user + "/" + repo + "/" + branch;
+    var key = "filelist:" + user + "/" + repo + "/" + branch;
+    // Reuse the file list for 5 minutes, then fetch it again (so new uploads show up)
     try {
-      var cached = sessionStorage.getItem(key);
-      if (cached) return Promise.resolve(JSON.parse(cached));
+      var cached = JSON.parse(sessionStorage.getItem(key) || "null");
+      if (cached && cached.paths && Date.now() - cached.time < 5 * 60 * 1000) {
+        return Promise.resolve(cached.paths);
+      }
     } catch (e) { /* storage not available */ }
     var url = "https://api.github.com/repos/" + user + "/" + repo + "/git/trees/" + branch + "?recursive=1";
     return fetch(url)
@@ -36,7 +39,7 @@
         var paths = (data.tree || [])
           .filter(function (t) { return t.type === "blob" && t.path.indexOf("images/") === 0; })
           .map(function (t) { return t.path.slice(7); });
-        try { sessionStorage.setItem(key, JSON.stringify(paths)); } catch (e) { /* ignore */ }
+        try { sessionStorage.setItem(key, JSON.stringify({ time: Date.now(), paths: paths })); } catch (e) { /* ignore */ }
         return paths;
       })
       .catch(function () { return null; });
