@@ -46,10 +46,10 @@ a { color: inherit; }
 .site-nav a:hover, .site-nav a.active { border-color: var(--fg); }
 
 /* ===== Home ===== */
-.home-main { display: flex; justify-content: center; align-items: flex-start; padding: 3.5rem var(--pad) 2rem; }
+.home-main { display: flex; justify-content: center; align-items: flex-start; padding: 2rem var(--pad) 1.5rem; }
 .home-image {
   width: auto; height: auto;
-  max-width: min(720px, 100%); max-height: 62vh;
+  max-width: min(1400px, 100%); max-height: calc(100vh - 210px);
   opacity: 0; transition: opacity 1s ease;
 }
 .home-image.loaded { opacity: 1; }
