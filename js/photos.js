@@ -30,28 +30,32 @@ const PROJECTS = [
     folder: "big-bend",
     title: "Big Bend National Park",
     caption: "Big Bend National Park, Texas",
-    // cover: "ELIA4589.jpg",
+    cover: "ELIA4389.jpg",
   },
   {
     folder: "purdue",
     title: "Purdue",
     caption: "Purdue University, West Lafayette, Indiana",
+    cover: "_DSF1340.jpg",
     onHome: false,
   },
   {
     folder: "california",
     title: "California",
     caption: "California",
+    cover: "_DSF0355.jpg",
   },
   {
     folder: "croatia",
     title: "Croatia",
     caption: "Croatia",
+    cover: "ELIA3982.jpg",
   },
   {
     folder: "alps",
     title: "Alps",
     caption: "The Alps",
+    cover: "_DSF3565.jpg",
   },
 ];
 
