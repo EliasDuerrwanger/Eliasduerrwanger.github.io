@@ -71,15 +71,30 @@ a { color: inherit; }
 
 /* ===== Project ===== */
 .project { display: flex; flex-direction: column; align-items: center; padding: 2rem var(--pad) 1rem; }
-.slider { display: flex; align-items: center; justify-content: center; gap: clamp(.25rem, 2vw, 1.5rem); width: 100%; }
-.slide { flex: 0 1 auto; min-width: 0; margin: 0; display: flex; justify-content: center; }
+/* Fixed stage: arrows and caption never move, photos are centered inside */
+.slider {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 230px);
+  min-height: 320px;
+}
+.slide {
+  position: absolute; inset: 0 3.5rem;
+  margin: 0;
+  display: flex; align-items: center; justify-content: center;
+}
 .slide img {
   width: auto; height: auto;
-  max-width: 100%; max-height: calc(100vh - 230px);
+  max-width: 100%; max-height: 100%;
   cursor: pointer; transition: opacity .35s ease;
 }
 .slide img.fading { opacity: 0; }
-.arrow { flex: none; padding: 1rem .5rem; background: none; border: 0; color: var(--fg); cursor: pointer; }
+.arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  padding: 1rem .5rem; background: none; border: 0; color: var(--fg); cursor: pointer;
+}
+#prev { left: 0; }
+#next { right: 0; }
 .arrow svg { display: block; width: 10px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.2; }
 .slide-caption { margin: 2rem 0 .25rem; font-size: 1.25rem; text-align: center; }
 .slide-caption:empty { display: none; }
@@ -93,8 +108,8 @@ a { color: inherit; }
 .next-project svg { width: 14px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 .next-project:hover #next-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 @media (max-width: 560px) {
-  .slider { position: relative; }
-  .slide img { max-height: 70vh; }
+  .slider { height: 65vh; min-height: 0; }
+  .slide { inset: 0 2rem; }
 }
 
 /* ===== About ===== */
