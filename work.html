@@ -7,6 +7,22 @@
   <meta name="description" content="Selected work by Elias Dürrwanger.">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Work page: fit all albums on one screen (no scrolling on laptops/desktops) */
+    @media (min-width: 900px) {
+      .work-grid {
+        --gap-x: 2rem;
+        --cover-w: min(calc((100vw - 2 * var(--pad) - 2 * var(--gap-x)) / 3),
+                       calc((100vh - 300px) * 2 / 3));
+        grid-template-columns: repeat(3, var(--cover-w));
+        justify-content: center;
+        gap: 1.5rem var(--gap-x);
+        padding: 1.5rem var(--pad) 1rem;
+      }
+      .work-item h3 { margin-top: .6rem; font-size: 1.05rem; }
+      .site-footer { padding-top: 1.25rem; padding-bottom: 1.5rem; }
+    }
+  </style>
 </head>
 <body data-page="work">
   <header class="site-header">
@@ -20,8 +36,8 @@
     <div class="work-grid" id="work-grid"></div>
   </main>
   <footer class="site-footer">
-    <a href="https://www.instagram.com/eliasmaximiliand/" target="_blank" rel="noopener">Instagram</a>
-    <a class="subtle" href="impressum.html">Impressum</a>
+    <a href="https://www.instagram.com/eliasmaximiliand/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.linkedin.com/in/eliasduerrwanger/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5v6M8 7.5v.01M12 16.5v-6M12 13.2c0-1.8 1.1-2.7 2.3-2.7 1.3 0 2.2.9 2.2 2.7v3.3"/></svg></a>
   </footer>
   <script src="js/photos.js"></script>
   <script src="js/main.js"></script>
