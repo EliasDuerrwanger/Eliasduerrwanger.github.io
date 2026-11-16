@@ -4,9 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About — Elias Dürrwanger</title>
-  <meta name="description" content="About Elias Dürrwanger.">
+  <meta name="description" content="About Elias Dürrwanger – photographer from Munich.">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* About page: big round portrait */
+    .about {
+      grid-template-columns: minmax(0, 360px) minmax(0, 440px);
+      align-items: center;
+      padding-top: 3rem;
+    }
+    .about-portrait {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center 30%;  /* move the crop: lower % = more of the top */
+      border-radius: 50%;
+    }
+    @media (max-width: 700px) {
+      .about { grid-template-columns: 1fr; justify-items: center; text-align: center; padding-top: 1.5rem; }
+      .about-portrait { max-width: 260px; }
+    }
+  </style>
 </head>
 <body data-page="about">
   <header class="site-header">
@@ -17,19 +36,16 @@
     </nav>
   </header>
   <main class="about">
-    <!-- Replace images/portrait.jpg with your own portrait (portrait format looks best) -->
     <img class="about-portrait" src="images/portrait.jpg" alt="Portrait of Elias Dürrwanger">
     <div class="about-text">
-      <!-- Edit this text so it sounds like you -->
-      <p>Elias Dürrwanger is a photographer based in Munich, Germany.</p>
+      <p>Elias Dürrwanger is a German photographer from Munich, currently living in Indiana.</p>
+      <p>His work is drawn to quiet landscapes and the places in between – from the deserts of Texas and the California coast to the Alps and the Adriatic.</p>
+      <p>Available for commissions and collaborations.</p>
       <p><a href="mailto:eliasduerrwanger@gmail.com">eliasduerrwanger@gmail.com</a></p>
       <p class="small">
         <a href="https://www.instagram.com/eliasmaximiliand/" target="_blank" rel="noopener">Instagram</a> ·
         <a href="https://www.linkedin.com/in/eliasduerrwanger/" target="_blank" rel="noopener">LinkedIn</a>
       </p>
-      <!-- Once you have clients, remove the comment markers around this line:
-      <p class="small"><strong>Selected Clients:</strong> Client One, Client Two, Client Three</p>
-      -->
     </div>
   </main>
   <footer class="site-footer">
