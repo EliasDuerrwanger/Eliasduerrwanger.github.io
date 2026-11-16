@@ -3,7 +3,7 @@
   YOUR PHOTOS – edit only this file
   =========================================================
   Just drop photos into the project folders inside "images/":
-    images/big-bend/  images/purdue/  images/california/  images/croatia/  images/alps/  images/Film/
+    images/purdue/  images/california/  images/croatia/  images/big-bend/  images/alps/  images/Film/
   The website finds them automatically (any file name, .jpg / .jpeg / .png / .webp).
   Photos are shown in file-name order.
 */
@@ -26,12 +26,7 @@ const SITE = {
   onHome:  false = photos of this project never appear on the homepage
 */
 const PROJECTS = [
-  {
-    folder: "big-bend",
-    title: "Big Bend National Park",
-    caption: "Big Bend National Park, Texas",
-    cover: "ELIA4389.jpg",
-  },
+  // 1. Purdue
   {
     folder: "purdue",
     title: "Purdue",
@@ -39,24 +34,35 @@ const PROJECTS = [
     cover: "_DSF1340.jpg",
     onHome: false,
   },
+  // 2. California
   {
     folder: "california",
     title: "California",
     caption: "California",
     cover: "_DSF0355.jpg",
   },
+  // 3. Croatia
   {
     folder: "croatia",
     title: "Croatia",
     caption: "Croatia",
     cover: "ELIA3982.jpg",
   },
+  // 4. Big Bend
+  {
+    folder: "big-bend",
+    title: "Big Bend National Park",
+    caption: "Big Bend National Park, Texas",
+    cover: "ELIA4389.jpg",
+  },
+  // 5. Alps
   {
     folder: "alps",
     title: "Alps",
     caption: "The Alps",
     cover: "_DSF3565.jpg",
   },
+  // 6. Film
   {
     folder: "Film",
     title: "Film",
