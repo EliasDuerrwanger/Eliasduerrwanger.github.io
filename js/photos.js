@@ -2,57 +2,61 @@
   =========================================================
   YOUR PHOTOS – edit only this file
   =========================================================
-  Each project has its own folder inside "images/":
-
-    images/big-bend/01.jpg, 02.jpg, 03.jpg ...
-    images/purdue/01.jpg, 02.jpg ...
-    images/california/...
-    images/croatia/...
-    images/alps/...
-
-  Name the photos 01.jpg, 02.jpg, 03.jpg ... (two digits, lowercase .jpg)
-  and set "count" to the number of photos in that folder.
-  01.jpg is the cover on the Work page.
-  The order of the projects below = the order on the Work page.
+  Just drop photos into the project folders inside "images/":
+    images/big-bend/  images/purdue/  images/california/  images/croatia/  images/alps/
+  The website finds them automatically (any file name, .jpg / .jpeg / .png / .webp).
+  Photos are shown in file-name order.
 */
 
-// Homepage: one of these is shown at random on every visit
-const HOME_IMAGES = [
-  "big-bend/01.jpg",
-  "california/01.jpg",
-  "croatia/01.jpg",
-  "alps/01.jpg",
-];
+const SITE = {
+  // Your GitHub username. Can stay empty while the site runs on <username>.github.io.
+  // Fill it in if you use your own domain later, or to preview the site on your computer.
+  githubUser: "",
+  // Leave empty if your repository is called <username>.github.io
+  githubRepo: "",
+  branch: "main",
+};
 
+/*
+  Projects on the "Work" page, in this order.
+  folder:  folder name inside images/
+  title:   shown under the cover and as "next project"
+  caption: line under the slideshow (can be "")
+  cover:   optional – file name of the cover photo (otherwise the first photo is used)
+  onHome:  false = photos of this project never appear on the homepage
+*/
 const PROJECTS = [
   {
     folder: "big-bend",
     title: "Big Bend National Park",
     caption: "Big Bend National Park, Texas",
-    count: 3,
+    // cover: "ELIA4589.jpg",
   },
   {
     folder: "purdue",
     title: "Purdue",
     caption: "Purdue University, West Lafayette, Indiana",
-    count: 3,
+    onHome: false,
   },
   {
     folder: "california",
     title: "California",
     caption: "California",
-    count: 3,
   },
   {
     folder: "croatia",
     title: "Croatia",
     caption: "Croatia",
-    count: 3,
   },
   {
     folder: "alps",
     title: "Alps",
     caption: "The Alps",
-    count: 3,
   },
 ];
+
+/*
+  Homepage: leave empty = random photo from all projects (except onHome: false).
+  Or pick your favourites, e.g. ["alps/_DSF3555.jpg", "big-bend/ELIA4389.jpg"]
+*/
+const HOME_IMAGES = [];
