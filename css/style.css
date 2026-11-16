@@ -70,12 +70,12 @@ a { color: inherit; }
 @media (max-width: 560px) { .work-grid { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 2rem; } .work-item h3 { margin-top: .9rem; } }
 
 /* ===== Project ===== */
-.project { display: flex; flex-direction: column; align-items: center; padding: 2rem var(--pad) 1rem; }
+.project { display: flex; flex-direction: column; align-items: center; padding: 0 var(--pad) 1rem; }
 /* Fixed stage: arrows and caption never move, photos are centered inside */
 .slider {
   position: relative;
   width: 100%;
-  height: calc(100vh - 190px);
+  height: calc(100vh - 200px);
   min-height: 320px;
 }
 .slide {
@@ -96,25 +96,19 @@ a { color: inherit; }
 #prev { left: 0; }
 #next { right: 0; }
 .arrow svg { display: block; width: 10px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.2; }
-/* Caption (center) and next album (right) in one row under the photo */
-.project-bar {
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem;
-  width: 100%; margin-top: 1rem;
-}
-.slide-caption { grid-column: 2; margin: 0; font-size: 1.15rem; text-align: center; }
-.slide-caption:empty { display: none; }
+/* Next album: top right, directly under Work / About */
+.project-top { display: flex; justify-content: flex-end; width: 100%; margin-bottom: .75rem; }
 .next-project {
-  grid-column: 3; justify-self: end;
-  display: inline-flex; align-items: center; gap: 1rem;
-  font-size: clamp(1.2rem, 2.4vw, 1.6rem); text-decoration: none; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: 1.05rem; text-decoration: none; white-space: nowrap;
 }
-.next-project svg { width: 12px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.4; }
-.next-project:hover #next-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.next-project svg { width: 8px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.next-project:hover #next-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.slide-caption { margin: 1rem 0 0; font-size: 1.15rem; text-align: center; }
+.slide-caption:empty { display: none; }
 @media (max-width: 560px) {
   .slider { height: 62vh; min-height: 0; }
   .slide { inset: 0 2rem; }
-  .project-bar { grid-template-columns: 1fr; gap: .75rem; }
-  .slide-caption, .next-project { grid-column: 1; }
   .slide-caption { font-size: 1rem; }
 }
 
