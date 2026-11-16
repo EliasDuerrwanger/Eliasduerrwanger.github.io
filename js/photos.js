@@ -3,7 +3,7 @@
   YOUR PHOTOS – edit only this file
   =========================================================
   Just drop photos into the project folders inside "images/":
-    images/big-bend/  images/purdue/  images/california/  images/croatia/  images/alps/
+    images/big-bend/  images/purdue/  images/california/  images/croatia/  images/alps/  images/Film/
   The website finds them automatically (any file name, .jpg / .jpeg / .png / .webp).
   Photos are shown in file-name order.
 */
@@ -56,6 +56,12 @@ const PROJECTS = [
     title: "Alps",
     caption: "The Alps",
     cover: "_DSF3565.jpg",
+  },
+  {
+    folder: "Film",
+    title: "Film",
+    caption: "Shot on film",
+    // cover: "000029040003.jpg",
   },
 ];
 
