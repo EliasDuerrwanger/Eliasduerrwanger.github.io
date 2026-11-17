@@ -24,11 +24,11 @@ const SITE = {
   onHome:  false = photos of this project never appear on the homepage
 */
 const PROJECTS = [
-  // 1. The American Experience
+    // 1. American Towns
   {
     folder: "The American Experience",
-    title: "The American Experience",
-    caption: "The American Experience",
+    title: "American Towns",
+    caption: "American Towns",
     // cover: "_DSF1218.jpg",
   },
   // 2. Purdue
