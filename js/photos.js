@@ -12,9 +12,9 @@
 const SITE = {
   // Your GitHub username. Can stay empty while the site runs on <username>.github.io.
   // Fill it in if you use your own domain later, or to preview the site on your computer.
-  githubUser: "",
+  githubUser: "EliasDuerrwanger",
   // Leave empty if your repository is called <username>.github.io
-  githubRepo: "",
+  githubRepo: "Eliasduerrwanger.github.io",
   branch: "main",
 };
 
