@@ -14,7 +14,7 @@
     /* Resume page */
     .resume { max-width: 820px; margin: 0 auto; padding: 2.5rem var(--pad) 3rem; }
     .resume h1 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 400; }
-    .resume .lead { margin: .4rem 0 0; color: var(--muted); font-size: 1.05rem; }
+
     .resume .contact { margin: .8rem 0 0; font-size: .95rem; }
     .resume .contact a { text-decoration: none; border-bottom: 1px solid transparent; }
     .resume .contact a:hover { border-color: var(--fg); }
@@ -24,6 +24,9 @@
       font-size: .8rem; font-weight: 400; letter-spacing: .18em; text-transform: uppercase;
       border-bottom: 1px solid #111;
     }
+    .resume section.first { margin-top: 0; }
+    .resume h2 { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+    .resume h2 .lead { color: var(--muted); font-size: .95rem; letter-spacing: normal; text-transform: none; }
     .entry { display: grid; grid-template-columns: 9.5rem 1fr; gap: .25rem 1.5rem; margin-bottom: 1.3rem; }
     .entry .date { color: var(--muted); font-size: .95rem; padding-top: .1rem; }
     .entry h3 { margin: 0; font-size: 1.08rem; font-weight: 400; }
@@ -48,11 +51,8 @@
     </nav>
   </header>
   <main class="resume">
-    <h1>Elias Dürrwanger</h1>
-    <p class="lead">B.Sc. Aerospace Engineering · expected graduation 2027</p>
-
-    <section>
-      <h2>Experience</h2>
+    <section class="first">
+      <h2>Experience <span class="lead">B.Sc. Aerospace Engineering · expected graduation 2027</span></h2>
       <div class="entry">
         <div class="date">09/2025 – 01/2026</div>
         <div>
