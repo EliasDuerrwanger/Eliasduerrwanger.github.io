@@ -29,7 +29,8 @@ const PROJECTS = [
     folder: "The American Experience",
     title: "America",
     caption: "America",
-    // cover: "_DSF1218.jpg",
+    cover: "_DSF1731.jpg",
+    onHome: false,
   },
   // 2. Purdue
   {
