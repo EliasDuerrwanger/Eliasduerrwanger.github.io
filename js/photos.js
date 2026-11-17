@@ -24,7 +24,7 @@ const SITE = {
   onHome:  false = photos of this project never appear on the homepage
 */
 const PROJECTS = [
-    // 1. American Towns
+    // 1. America
   {
     folder: "America",
     title: "America",
