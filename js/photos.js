@@ -26,9 +26,9 @@ const SITE = {
 const PROJECTS = [
     // 1. American Towns
   {
-    folder: "The American Experience",
-    title: "American Towns",
-    caption: "American Towns",
+    folder: "America",
+    title: "America",
+    caption: "America",
     // cover: "_DSF1218.jpg",
   },
   // 2. Purdue
