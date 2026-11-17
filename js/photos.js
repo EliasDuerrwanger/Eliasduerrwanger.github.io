@@ -26,7 +26,7 @@ const SITE = {
 const PROJECTS = [
     // 1. America
   {
-    folder: "America",
+    folder: "The American Experience",
     title: "America",
     caption: "America",
     // cover: "_DSF1218.jpg",
