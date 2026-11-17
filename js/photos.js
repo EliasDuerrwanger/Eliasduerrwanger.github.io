@@ -3,24 +3,21 @@
   YOUR PHOTOS – edit only this file
   =========================================================
   Just drop photos into the project folders inside "images/":
-    images/the-american-experience/  images/purdue/  images/california/
-    images/croatia/  images/big-bend/  images/alps/  images/Film/
+    images/The American Experience/  images/purdue/  images/california/  images/croatia/  images/big-bend/  images/alps/  images/Film/
   The website finds them automatically (any file name, .jpg / .jpeg / .png / .webp).
   Photos are shown in file-name order.
 */
 
 const SITE = {
-  // Your GitHub username. Can stay empty while the site runs on <username>.github.io.
-  // Fill it in if you use your own domain later, or to preview the site on your computer.
+  // Needed for the custom domain eliasduerrwanger.com
   githubUser: "EliasDuerrwanger",
-  // Leave empty if your repository is called <username>.github.io
   githubRepo: "Eliasduerrwanger.github.io",
   branch: "main",
 };
 
 /*
   Projects on the "Work" page, in this order.
-  folder:  folder name inside images/
+  folder:  folder name inside images/ (exactly as on GitHub, including spaces and capital letters)
   title:   shown under the cover and as "next project"
   caption: line under the slideshow (can be "")
   cover:   optional – file name of the cover photo (otherwise the first photo is used)
@@ -29,10 +26,10 @@ const SITE = {
 const PROJECTS = [
   // 1. The American Experience
   {
-    folder: "the-american-experience",
+    folder: "The American Experience",
     title: "The American Experience",
     caption: "The American Experience",
-    // cover: "FILENAME.jpg",
+    // cover: "_DSF1218.jpg",
   },
   // 2. Purdue
   {
