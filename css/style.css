@@ -83,7 +83,8 @@ a { color: inherit; }
 
 /* ===== Project ===== */
 .project { display: flex; flex-direction: column; align-items: center; padding: 0 var(--pad) 1rem; }
-/* Fixed stage: photo uses the full width, arrows sit on top of the photo */
+/* Fixed stage: photo uses the full width, arrows stay in the same place
+   at the left/right edge and float over the photo when it is wide */
 .slider {
   position: relative;
   width: 100%;
@@ -95,28 +96,23 @@ a { color: inherit; }
   margin: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.slide-frame { position: relative; display: inline-block; max-width: 100%; line-height: 0; }
 .slide img {
   width: auto; height: auto;
-  max-width: 100%; max-height: max(320px, calc(100vh - 200px));
+  max-width: 100%; max-height: 100%;
   cursor: pointer; transition: opacity .35s ease;
 }
 .slide img.fading { opacity: 0; }
 .arrow {
-  position: absolute; top: 0; bottom: 0; z-index: 2;
-  width: 4rem; padding: 0;
-  display: flex; align-items: center;
-  background: none; border: 0; color: #ffffff; cursor: pointer;
-  opacity: .85; transition: opacity .2s ease;
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 44px; height: 44px; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(247, 243, 232, .8); border: 0; border-radius: 50%;
+  color: var(--fg); cursor: pointer; transition: background .2s ease;
 }
-.arrow:hover { opacity: 1; }
-#prev { left: 6px;  justify-content: flex-start; padding-left: 1rem; }
-#next { right: 6px; justify-content: flex-end;   padding-right: 1rem; }
-.arrow svg {
-  display: block; width: 14px; height: 28px;
-  fill: none; stroke: currentColor; stroke-width: 2;
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, .55));
-}
+.arrow:hover { background: rgba(247, 243, 232, 1); }
+#prev { left: 14px; }
+#next { right: 14px; }
+.arrow svg { display: block; width: 10px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 /* Next album: top right, directly under Work / About */
 .project-top { display: flex; justify-content: flex-end; width: 100%; margin-bottom: .75rem; }
 .next-project {
@@ -129,10 +125,9 @@ a { color: inherit; }
 .slide-caption:empty { display: none; }
 @media (max-width: 560px) {
   .slider { height: 62vh; min-height: 0; }
-  .slide img { max-height: 62vh; }
-  .arrow { width: 3rem; }
-  #prev { padding-left: .6rem; }
-  #next { padding-right: .6rem; }
+  .arrow { width: 36px; height: 36px; }
+  #prev { left: 8px; }
+  #next { right: 8px; }
   .slide-caption { font-size: 1rem; }
 }
 
