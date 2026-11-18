@@ -1,27 +1,26 @@
-/* ===== Font (self-hosted, same look in every browser) =====
-   Put the file "latin-400-normal.woff2" into the folder "fonts/".
-   Until it is there, the site falls back to Bodoni 72 / Didot / Times. */
+/* ===== Font: Pathway Extreme (self-hosted, same look in every browser) =====
+   File: fonts/PathwayExtreme.woff  (variable font, weights 100–900) */
 @font-face {
-  font-family: "Bodoni Moda";
-  src: url("../fonts/latin-400-normal.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Pathway Extreme";
+  src: url("../fonts/PathwayExtreme.woff") format("woff");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 /* ===== Basics ===== */
 :root {
-  color-scheme: only light;   /* always white, even in dark mode */
-  --bg: #ffffff;
+  color-scheme: only light;   /* always eggshell, even in dark mode */
+  --bg: #f7f3e8;
   --fg: #111111;
   --muted: #8a8a8a;
-  --serif: "Bodoni Moda", "Bodoni 72", "Bodoni MT", Didot, "Didot LT STD", "Libre Bodoni", "Times New Roman", serif;
+  --serif: "Pathway Extreme", "Helvetica Neue", Arial, sans-serif;
   --pad: clamp(1.25rem, 3vw, 2rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: #ffffff; color: #111111; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: #f7f3e8; color: #111111; }
 body {
   margin: 0;
   min-height: 100vh;
@@ -30,6 +29,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--serif);
+  font-weight: 700;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -46,7 +46,7 @@ a { color: inherit; }
   position: sticky; top: 0; z-index: 10;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding: 1.05rem var(--pad);
-  background: rgba(255, 255, 255, .96);
+  background: rgba(247, 243, 232, .96);
 }
 .brand { font-size: clamp(1.4rem, 2.6vw, 1.75rem); letter-spacing: .01em; text-decoration: none; }
 .site-nav { display: flex; gap: 1rem; }
@@ -74,16 +74,16 @@ a { color: inherit; }
   padding: 4rem var(--pad) 3rem;
 }
 .work-item { display: block; text-decoration: none; }
-.work-item .cover { aspect-ratio: 4 / 3; overflow: hidden; background: #f2f2f2; }
+.work-item .cover { aspect-ratio: 4 / 3; overflow: hidden; background: #ede8da; }
 .work-item img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
 .work-item:hover img { opacity: .85; }
-.work-item h3 { margin: 1.6rem 0 0; font-size: 1.15rem; font-weight: 400; }
+.work-item h3 { margin: 1.6rem 0 0; font-size: 1.15rem; font-weight: 700; }
 @media (max-width: 900px) { .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.5rem 2rem; } }
 @media (max-width: 560px) { .work-grid { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 2rem; } .work-item h3 { margin-top: .9rem; } }
 
 /* ===== Project ===== */
 .project { display: flex; flex-direction: column; align-items: center; padding: 0 var(--pad) 1rem; }
-/* Fixed stage: arrows and caption never move, photos are centered inside */
+/* Fixed stage: photo uses the full width, arrows sit on top of the photo */
 .slider {
   position: relative;
   width: 100%;
@@ -91,23 +91,32 @@ a { color: inherit; }
   min-height: 320px;
 }
 .slide {
-  position: absolute; inset: 0 3.5rem;
+  position: absolute; inset: 0;
   margin: 0;
   display: flex; align-items: center; justify-content: center;
 }
+.slide-frame { position: relative; display: inline-block; max-width: 100%; line-height: 0; }
 .slide img {
   width: auto; height: auto;
-  max-width: 100%; max-height: 100%;
+  max-width: 100%; max-height: max(320px, calc(100vh - 200px));
   cursor: pointer; transition: opacity .35s ease;
 }
 .slide img.fading { opacity: 0; }
 .arrow {
-  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
-  padding: 1rem .5rem; background: none; border: 0; color: var(--fg); cursor: pointer;
+  position: absolute; top: 0; bottom: 0; z-index: 2;
+  width: 4rem; padding: 0;
+  display: flex; align-items: center;
+  background: none; border: 0; color: #ffffff; cursor: pointer;
+  opacity: .85; transition: opacity .2s ease;
 }
-#prev { left: 0; }
-#next { right: 0; }
-.arrow svg { display: block; width: 10px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.2; }
+.arrow:hover { opacity: 1; }
+#prev { left: 6px;  justify-content: flex-start; padding-left: 1rem; }
+#next { right: 6px; justify-content: flex-end;   padding-right: 1rem; }
+.arrow svg {
+  display: block; width: 14px; height: 28px;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, .55));
+}
 /* Next album: top right, directly under Work / About */
 .project-top { display: flex; justify-content: flex-end; width: 100%; margin-bottom: .75rem; }
 .next-project {
@@ -120,7 +129,10 @@ a { color: inherit; }
 .slide-caption:empty { display: none; }
 @media (max-width: 560px) {
   .slider { height: 62vh; min-height: 0; }
-  .slide { inset: 0 2rem; }
+  .slide img { max-height: 62vh; }
+  .arrow { width: 3rem; }
+  #prev { padding-left: .6rem; }
+  #next { padding-right: .6rem; }
   .slide-caption { font-size: 1rem; }
 }
 
@@ -143,8 +155,8 @@ a { color: inherit; }
 
 /* ===== Impressum / text pages ===== */
 .legal { max-width: 680px; margin: 0 auto; padding: 3rem var(--pad); }
-.legal h1 { margin: 0 0 1.5rem; font-size: 2rem; font-weight: 400; }
-.legal h2 { margin: 2rem 0 .4rem; font-size: 1.1rem; font-weight: 400; }
+.legal h1 { margin: 0 0 1.5rem; font-size: 2rem; font-weight: 700; }
+.legal h2 { margin: 2rem 0 .4rem; font-size: 1.1rem; font-weight: 700; }
 .legal p { margin: 0 0 1rem; line-height: 1.7; }
 
 /* ===== Footer ===== */
@@ -165,10 +177,3 @@ a { color: inherit; }
 .work-item .cover,
 .slide img,
 .about-portrait { border: var(--frame); }
-/* No long-press save on phones, no selecting/dragging photos */
-img {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-user-drag: none;
-}
